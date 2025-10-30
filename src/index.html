@@ -13,11 +13,11 @@
     }
 
     body {
-      background: #145cba;
+      background: #f4f7fb;
       overflow-x: hidden;
     }
 
-    /* Navbar container */
+    /* Navbar */
     nav {
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: white;
@@ -32,42 +32,27 @@
       animation: slideDown 1s ease forwards;
     }
 
-    /* Navbar animation */
     @keyframes slideDown {
-      from {
-        transform: translateY(-100%);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
-    /* Logo */
     .logo {
       font-size: 28px;
       font-weight: 700;
-      color: #171712;
+      color: #00d4ff;
       cursor: pointer;
       animation: glow 2s infinite alternate;
     }
 
     @keyframes glow {
-      from { text-shadow: 0 0 10px #112a2f; }
-      to { text-shadow: 0 0 25px #7ae10c, 0 0 40px #132225; }
+      from { text-shadow: 0 0 10px #00d4ff; }
+      to { text-shadow: 0 0 25px #00d4ff, 0 0 40px #00d4ff; }
     }
 
-    /* Navbar links */
     .nav-links {
       display: flex;
       gap: 30px;
-      animation: fadeIn 1.5s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     .nav-links a {
@@ -98,7 +83,6 @@
       transform: scale(1.1);
     }
 
-    /* Button */
     .buy-btn {
       background: #00d4ff;
       color: #0f2027;
@@ -117,49 +101,91 @@
       transform: scale(1.1);
     }
 
-    /* Hero Section */
-    .hero {
+    /* Filter Options Bar */
+    .filter-bar {
+      background: white;
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 30px;
-      padding: 60px 20px;
-      background: #ffffff;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin: 20px auto;
+      width: 90%;
+      border-radius: 15px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .filter-bar select {
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: 2px solid #00d4ff;
+      background: #f4f7fb;
+      font-weight: 500;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .filter-bar select:hover {
+      border-color: #0f2027;
+      background: #e0f7ff;
+    }
+
+    .filter-bar button {
+      background: #00d4ff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .filter-bar button:hover {
+      background: #0f2027;
+      transform: scale(1.05);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 40px 20px 20px;
+      background: white;
       animation: fadeInUp 1.5s ease forwards;
     }
 
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(50px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .hero img {
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #0f2027;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 0 20px 60px;
+    }
+
+    .gallery img {
       width: 220px;
-      height: auto;
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
       cursor: pointer;
     }
 
-    .hero img:hover {
+    .gallery img:hover {
       transform: scale(1.1);
       box-shadow: 0 12px 25px rgba(0,0,0,0.5);
-    }
-
-    .hero h2 {
-      width: 100%;
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #0f2027;
     }
 
     /* Responsive */
@@ -177,7 +203,7 @@
         margin-top: 10px;
       }
 
-      .hero img {
+      .gallery img {
         width: 160px;
       }
     }
@@ -198,13 +224,52 @@
     </div>
   </nav>
 
-  <!-- Hero Section with Animated Images -->
+  <!-- Filter Options -->
+  <div class="filter-bar">
+    <select>
+      <option selected disabled>Choose Brand</option>
+      <option>Apple</option>
+      <option>Samsung</option>
+      <option>OnePlus</option>
+      <option>Vivo</option>
+      <option>Oppo</option>
+      <option>Xiaomi</option>
+      <option>Google</option>
+      <option>Nothing</option>
+    </select>
+
+    <select>
+      <option selected disabled>Price Range</option>
+      <option>Below ₹20,000</option>
+      <option>₹20,000 - ₹40,000</option>
+      <option>₹40,000 - ₹60,000</option>
+      <option>Above ₹60,000</option>
+    </select>
+
+    <select>
+      <option selected disabled>Sort By</option>
+      <option>Popularity</option>
+      <option>Newest First</option>
+      <option>Price: Low to High</option>
+      <option>Price: High to Low</option>
+    </select>
+
+    <button>Apply Filters</button>
+  </div>
+
+  <!-- Hero Section -->
   <section class="hero">
     <h2>🔥 Latest Smartphones Collection 🔥</h2>
-    <img src="https://cdn.tmobile.com/content/dam/t-mobile/en-p/cell-phones/apple/apple-iphone-15-pro-max/titanium-blue/apple-iphone-15-pro-max-titanium-blue-frontimage.png" alt="iPhone 15 Pro Max">
-    <img src="https://images.samsung.com/is/image/samsung/p6pim/in/sm-s921blbdins/gallery/in-galaxy-s24-s921-499331-sm-s921blbdins-thumb-539470642" alt="Samsung S24 Ultra">
-    <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-ultra-1.jpg" alt="Xiaomi 14 Ultra">
-    <img src="https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-12r-2.jpg" alt="OnePlus 12R">
+    <div class="gallery">
+      <img src="https://cdn.tmobile.com/content/dam/t-mobile/en-p/cell-phones/apple/apple-iphone-15-pro-max/titanium-blue/apple-iphone-15-pro-max-titanium-blue-frontimage.png" alt="iPhone 15 Pro Max">
+      <img src="https://images.samsung.com/is/image/samsung/p6pim/in/sm-s921blbdins/gallery/in-galaxy-s24-s921-499331-sm-s921blbdins-thumb-539470642" alt="Samsung S24 Ultra">
+      <img src="https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-14-ultra-1.jpg" alt="Xiaomi 14 Ultra">
+      <img src="https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-12r-2.jpg" alt="OnePlus 12R">
+      <img src="https://fdn2.gsmarena.com/vv/pics/oppo/oppo-reno11-pro-5g-2.jpg" alt="Oppo Reno 11 Pro">
+      <img src="https://fdn2.gsmarena.com/vv/pics/vivo/vivo-v30-pro-1.jpg" alt="Vivo V30 Pro">
+      <img src="https://fdn2.gsmarena.com/vv/pics/nothing/nothing-phone-2-1.jpg" alt="Nothing Phone 2">
+      <img src="https://fdn2.gsmarena.com/vv/pics/google/google-pixel-8-pro-1.jpg" alt="Google Pixel 8 Pro">
+    </div>
   </section>
 
 </body>
